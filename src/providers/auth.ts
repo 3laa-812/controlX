@@ -13,7 +13,7 @@ export const authCredentials = {
 };
 
 export const authProvider: AuthProvider = {
-  login: async ({ email }) => {
+  login: async ({ email, password }) => {
     try {
       const { data } = await dataProvider.custom({
         url: API_URL,
@@ -22,14 +22,14 @@ export const authProvider: AuthProvider = {
         meta: {
           variables: { email },
           rawQuery: `
-                mutation Login($email: String!) {
-                    login(loginInput: {
-                      email: $email
-                    }) {
-                      accessToken,
-                    }
-                  }
-                `,
+    mutation Login($email: String!) {
+      login(loginInput: {
+        email: $email
+      }) {
+        accessToken
+      }
+    }
+  `,
         },
       });
 

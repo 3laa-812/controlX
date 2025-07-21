@@ -1,14 +1,8 @@
-import {
-  Refine,
-  GitHubBanner,
-  WelcomePage,
-} from "@refinedev/core";
+import { Refine, GitHubBanner, WelcomePage } from "@refinedev/core";
 import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 
-import {
-  useNotificationProvider,
-} from "@refinedev/antd";
+import { useNotificationProvider } from "@refinedev/antd";
 import "@refinedev/antd/dist/reset.css";
 
 import { App as AntdApp } from "antd";
@@ -21,6 +15,7 @@ import { ColorModeContextProvider } from "./contexts/color-mode";
 
 import { authProvider, dataProvider, liveProvider } from "./providers";
 
+import { Home, ForgotPassword, Login, Register } from "./pages";
 
 function App() {
   return (
@@ -30,7 +25,7 @@ function App() {
         <ColorModeContextProvider>
           <AntdApp>
             <DevtoolsProvider>
-              <Refine 
+              <Refine
                 dataProvider={dataProvider}
                 liveProvider={liveProvider}
                 notificationProvider={useNotificationProvider}
@@ -46,6 +41,10 @@ function App() {
               >
                 <Routes>
                   <Route index element={<WelcomePage />} />
+                  <Route index element={<Home />} />
+                  <Route path="/forgot-password" element={<ForgotPassword />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/register" element={<Register />} />
                 </Routes>
                 <RefineKbar />
                 <UnsavedChangesNotifier />

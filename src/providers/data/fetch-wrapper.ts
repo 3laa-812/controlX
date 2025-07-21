@@ -9,12 +9,25 @@ const customFetch = async (url: RequestInfo, options: RequestInit) => {
   const accessToken = localStorage.getItem("access-token");
   const headers = options.headers as Record<string, string>;
 
+  if (
+    options.method?.toLowerCase() === "post" &&
+    !options.body &&
+    (options as any).meta
+  ) {
+    const { rawQuery, variables } = (options as any).meta;
+    options.body = JSON.stringify({
+      query: rawQuery,
+      variables: variables || {},
+    });
+    delete (options as any).meta;
+  }
+
   return await fetch(url, {
     ...options,
     headers: {
       ...headers,
       Authorization: headers?.Authorization || `Bearer ${accessToken}`,
-      "content-type": "application/json",
+      "Content-Type": "application/json", // <-- Use correct casing
       "Apollo-Require-Preflight": "true",
     },
   });
