@@ -19,7 +19,7 @@ import routerBindings, {
 } from "@refinedev/react-router";
 import { ColorModeContextProvider } from "./contexts/color-mode";
 
-import { dataProvider, liveProvider } from "./providers";
+import { authProvider, dataProvider, liveProvider } from "./providers";
 
 
 function App() {
@@ -35,7 +35,7 @@ function App() {
                 liveProvider={liveProvider}
                 notificationProvider={useNotificationProvider}
                 routerProvider={routerBindings}
-                // authProvider={authProvider}
+                authProvider={authProvider}
                 options={{
                   syncWithLocation: true,
                   warnWhenUnsavedChanges: true,
