@@ -1,4 +1,9 @@
-import { Refine, GitHubBanner, WelcomePage } from "@refinedev/core";
+import {
+  Refine,
+  GitHubBanner,
+  WelcomePage,
+  Authenticated,
+} from "@refinedev/core";
 import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 
@@ -6,16 +11,18 @@ import { useNotificationProvider } from "@refinedev/antd";
 import "@refinedev/antd/dist/reset.css";
 
 import { App as AntdApp } from "antd";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Outlet, Route, Routes } from "react-router";
 import routerBindings, {
   UnsavedChangesNotifier,
   DocumentTitleHandler,
+  CatchAllNavigate,
 } from "@refinedev/react-router";
 import { ColorModeContextProvider } from "./contexts/color-mode";
 
 import { authProvider, dataProvider, liveProvider } from "./providers";
 
 import { Home, ForgotPassword, Login, Register } from "./pages";
+import Layout from "./components/layout";
 
 function App() {
   return (
@@ -40,11 +47,23 @@ function App() {
                 }}
               >
                 <Routes>
-                  <Route index element={<WelcomePage />} />
-                  <Route index element={<Home />} />
                   <Route path="/forgot-password" element={<ForgotPassword />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/register" element={<Register />} />
+                  <Route
+                    element={
+                      <Authenticated
+                        key={"authenticated-layout"}
+                        fallback={<CatchAllNavigate to="/login" />}
+                      >
+                        <Layout>
+                          <Outlet />
+                        </Layout>
+                      </Authenticated>
+                    }
+                  >
+                    <Route index element={<Home />} />
+                  </Route>
                 </Routes>
                 <RefineKbar />
                 <UnsavedChangesNotifier />
