@@ -22,6 +22,27 @@ export const getDate = (startDate: string, endDate: string) => {
   return `${start} - ${end}`;
 };
 
+// Chart color utilities for dark mode support
+export const getChartColors = (isDark: boolean) => ({
+  text: isDark ? "#fff" : "#000",
+  axisLine: isDark ? "#434343" : "#d9d9d9",
+  gridLine: isDark ? "#434343" : "#f0f0f0",
+  tooltipBg: isDark ? "#1f1f1f" : "#fff",
+  tooltipBorder: isDark ? "#434343" : "#d9d9d9",
+  noDataText: isDark ? "#8c8c8c" : "#666",
+});
+
+export const getDealsChartColors = (isDark: boolean) => ({
+  won: "#52C41A",
+  lost: "#FF4D4F",
+  text: isDark ? "#fff" : "#000",
+  axisLine: isDark ? "#434343" : "#d9d9d9",
+  gridLine: isDark ? "#434343" : "#f0f0f0",
+  tooltipBg: isDark ? "#1f1f1f" : "#fff",
+  tooltipBorder: isDark ? "#434343" : "#d9d9d9",
+  noDataText: isDark ? "#8c8c8c" : "#666",
+});
+
 // Filter out deals that don't have a closeDateMonth or closeDateYear
 const filterDeal = (deal?: DealAggregate) =>
   deal?.groupBy && deal.groupBy?.closeDateMonth && deal.groupBy?.closeDateYear;
@@ -31,7 +52,9 @@ const mapDeals = (
   state: string
 ): MappedDealData[] => {
   // filter out deals that don't have a closeDateMonth or closeDateYear
-  return deals.filter(filterDeal).map((deal) => {
+  const filteredDeals = deals.filter(filterDeal);
+
+  return filteredDeals.map((deal) => {
     // Get the closeDateMonth and closeDateYear from the deal
     const { closeDateMonth, closeDateYear } = deal.groupBy as NonNullable<
       DealAggregate["groupBy"]

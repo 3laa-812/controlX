@@ -23,6 +23,7 @@ import { authProvider, dataProvider, liveProvider } from "./providers";
 
 import { Home, ForgotPassword, Login, Register } from "./pages";
 import Layout from "./components/layout";
+import { resources } from "./config/resources";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
                 notificationProvider={useNotificationProvider}
                 routerProvider={routerBindings}
                 authProvider={authProvider}
+                resources={resources} // data entity that can be created read , updated and deleted
                 options={{
                   syncWithLocation: true,
                   warnWhenUnsavedChanges: true,
