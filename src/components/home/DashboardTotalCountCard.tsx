@@ -27,24 +27,29 @@ const DashboardTotalCountCard = ({
     data: totalCountVariants[resource].data,
     xField: "index",
     yField: "value",
-    padding: 0,
+    padding: -10,
     shapeField: "smooth",
     autoFit: true,
     area: {
       style: {
         fill: isDark
-          ? `l(270) 0:${colors.tooltipBg} 0.2${secondaryColor} 1:${primaryColor}`
-          : `l(270) 0:#fff 0.2${secondaryColor} 1:${primaryColor}`,
+          ? `l(270) 0:${colors.tooltipBg} 0.7${secondaryColor} 1:${primaryColor}`
+          : `l(270) 0:#fff 0.7${secondaryColor} 1:${primaryColor}`,
       },
-    },
-    line: {
-      color: primaryColor,
     },
     axis: {
       x: {
         visible: false,
+        labelFill: "white",
+        title: {
+          style: { fill: "white" },
+        },
       },
       y: {
+        labelFill: "white",
+        title: {
+          style: { fill: "white" },
+        },
         tickCount: 12,
         label: {
           style: {

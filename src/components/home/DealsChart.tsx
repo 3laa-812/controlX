@@ -46,6 +46,10 @@ const DealsChart = () => {
     },
     axis: {
       x: {
+        labelFill: "white",
+        title: {
+          style: { fill: "white" },
+        },
         label: {
           style: {
             fill: colors.text,
@@ -65,6 +69,10 @@ const DealsChart = () => {
         },
       },
       y: {
+        labelFill: "white",
+        title: {
+          style: { fill: "white" },
+        },
         tickCount: 5,
         label: {
           style: {

@@ -7,7 +7,7 @@ import {
 import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 
-import { useNotificationProvider } from "@refinedev/antd";
+import { Edit, useNotificationProvider } from "@refinedev/antd";
 import "@refinedev/antd/dist/reset.css";
 
 import { App as AntdApp } from "antd";
@@ -21,7 +21,15 @@ import { ColorModeContextProvider } from "./contexts/color-mode";
 
 import { authProvider, dataProvider, liveProvider } from "./providers";
 
-import { Home, ForgotPassword, Login, Register } from "./pages";
+import {
+  Home,
+  ForgotPassword,
+  Login,
+  Register,
+  CompanyList,
+  Create as CompanyCreate,
+  EditPage,
+} from "./pages";
 import Layout from "./components/layout";
 import { resources } from "./config/resources";
 
@@ -65,6 +73,11 @@ function App() {
                     }
                   >
                     <Route index element={<Home />} />
+                    <Route path="/companies">
+                      <Route index element={<CompanyList />} />
+                      <Route path="new" element={<CompanyCreate />} />
+                      <Route path="edit/:id" element={<EditPage />} />
+                    </Route>
                   </Route>
                 </Routes>
                 <RefineKbar />
