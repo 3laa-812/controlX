@@ -1,4 +1,4 @@
-# controlX
+# controlX Real-Time CRM Dashboard
 
 <div align="center" style="margin: 30px;">
     <a href="https://refine.dev">
@@ -7,43 +7,65 @@
 </div>
 <br/>
 
-This [Refine](https://github.com/refinedev/refine) project was generated with [create refine-app](https://github.com/refinedev/refine/tree/master/packages/create-refine-app).
+Enterprise-grade internal tool built with Refine, Ant Design, and GraphQL. Production-ready CRM dashboard with comprehensive business management capabilities and real-time updates.
 
-## Getting Started
+## 🚀 Features
 
-A React Framework for building internal tools, admin panels, dashboards & B2B apps with unmatched flexibility ✨
+- **Authentication**: Secure login, registration, and password recovery
+- **Authorization**: Granular access control with user permissions
+- **Home Dashboard**: Interactive charts for key metrics with real-time updates
+- **Company Management**: Complete CRUD operations for company profiles
+- **Kanban Board**: Real-time task management with drag-and-drop functionality
+- **Account Settings**: User profile management and customization
+- **Responsive Design**: Optimized for all device sizes
 
-Refine's hooks and components simplifies the development process and eliminates the repetitive tasks by providing industry-standard solutions for crucial aspects of a project, including authentication, access control, routing, networking, state management, and i18n.
+## 🛠 Tech Stack
 
-## Available Scripts
+- **Refine** - React meta-framework for enterprise applications
+- **TypeScript** - Type-safe development
+- **GraphQL** - Efficient data querying and manipulation
+- **Ant Design** - Enterprise-class UI design system
+- **Codegen** - Automatic TypeScript type generation
+- **Vite** - Fast build tooling
 
-### Running the development server.
+## 🔐 Authentication
 
-```bash
-    pnpm dev
-```
+Complete auth system with registration, secure login, password recovery, and session management.
 
-### Building for production.
+## 🎨 UI Features
 
-```bash
-    pnpm build
-```
+- Professional Ant Design interface
+- Responsive across all devices
+- Real-time collaborative updates
+- Interactive data visualizations
 
-### Running the production server.
+## 📊 Data Management
 
-```bash
-    pnpm start
-```
+- Efficient GraphQL data fetching
+- Optimistic UI updates
+- Real-time synchronization
+- Advanced filtering and search
 
-## Learn More
+## 🚦 Kanban Board
 
-To learn more about **Refine**, please check out the [Documentation](https://refine.dev/docs)
+- Drag-and-drop task management
+- Customizable task properties
+- Real-time multi-user updates
+- Visual status indicators
 
-- **NestJS Query Data Provider** [Docs](https://refine.dev/docs/data/packages/nestjs-query/)
-- **Ant Design** [Docs](https://refine.dev/docs/ui-frameworks/antd/tutorial/)
-- **React Router** [Docs](https://refine.dev/docs/core/providers/router-provider/)
-- **Custom Auth Provider** [Docs](https://refine.dev/docs/core/providers/auth-provider/)
+## 🏢 Company Management
 
-## License
+- Detailed company profiles
+- Contact and lead management
+- Activity tracking
+- Advanced search with pagination
 
-MIT
+## 🔧 Customization
+
+- Modular component architecture
+- Configurable data providers
+- Extensible authentication
+- Customizable UI themes
+
+
+Built with ❤️ By 3laa
