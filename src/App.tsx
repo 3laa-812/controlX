@@ -1,13 +1,11 @@
 import {
   Refine,
-  GitHubBanner,
-  WelcomePage,
   Authenticated,
 } from "@refinedev/core";
 import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 
-import { Edit, useNotificationProvider } from "@refinedev/antd";
+import { useNotificationProvider } from "@refinedev/antd";
 import "@refinedev/antd/dist/reset.css";
 
 import { App as AntdApp } from "antd";
@@ -32,11 +30,13 @@ import {
 } from "./pages";
 import Layout from "./components/layout";
 import { resources } from "./config/resources";
+import List from "./pages/tasks/list";
+import CreateTask from "./pages/tasks/create";
+import EditTask from "./pages/tasks/edit";
 
 function App() {
   return (
     <BrowserRouter>
-      <GitHubBanner />
       <RefineKbarProvider>
         <ColorModeContextProvider>
           <AntdApp>
@@ -77,6 +77,17 @@ function App() {
                       <Route index element={<CompanyList />} />
                       <Route path="new" element={<CompanyCreate />} />
                       <Route path="edit/:id" element={<EditPage />} />
+                    </Route>
+                    <Route
+                      path="/tasks"
+                      element={
+                        <List>
+                          <Outlet />
+                        </List>
+                      }
+                    >
+                      <Route path="new" element={<CreateTask />} />
+                      <Route path="edit/:id" element={<EditTask />} />
                     </Route>
                   </Route>
                 </Routes>
